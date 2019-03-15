@@ -4,19 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-    <title>Challenge 4</title>
+    <title>Challenge 3</title>
     <style>
-        .errormsg {
+        .errorMsg {
             font-family: 'Roboto Mono', monospace;
-            color:red;
+            color:rgb(255, 0, 0);
             display:none; }
     </style>
 
     <script>
         function checkForm(){
-      // Write a function that displays the appropriate error message(s) if a field is left blank.  Make sure the form action is not performed if either field is blank.
+            // Write a function that displays the appropriate error message(s) if a field is left blank.  Make sure the form action is not performed if either field is blank.
+            var name = document.querySelector("#name");
+            var addr = document.querySelector("#addr");
+            var nameE = document.querySelector("#nameError");
+            var addrE = document.querySelector("#addressError");
 
-    }
+            var valid = true;
+
+
+            if (name.value == ""){
+                nameE.style.display = 'block';
+                valid = false;
+            }else{
+                nameE.style.display = 'none';
+            }
+            if (addr.value == "") {
+                addrE.style.display = 'block';
+                valid = false;
+            }else{
+                addrE.style.display = 'none';
+            }
+
+            return valid;
+        }
     </script>
 </head>
 
