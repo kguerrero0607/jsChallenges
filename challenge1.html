@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <title>JavaScript Challenges</title>
-<!-- Step 1: Add some plain old CSS style so that the "emailfield" paragraph isn't displayed when the page first loads.  You can use the CSS 'display' property. Test to make sure this works.
+    <!-- Step 1: Add some plain old CSS style so that the "emailfield" paragraph isn't displayed when the page first loads.  You can use the CSS 'display' property. Test to make sure this works.
 
-Step 2: Create a new function called toggleEmail() that simply displays an message to the console, e.g. console.log("Yep, my function is being called"); 
+Step 2: Create a new function called toggleEmail() that simply displays an message to the console, e.g. console.log("Yep, my function is being called");
 
-Step 3: Add an event so that when the checkbox is clicked your function is called and test that it works! 
+Step 3: Add an event so that when the checkbox is clicked your function is called and test that it works!
 
 Step 4: Display the email fields
 Now add code so that our function actually does something useful! Using JavaScript, make the emailfield paragraph appear when the checkbox is clicked.  You will probably want to change the display property.
@@ -17,38 +18,48 @@ When you test your form at the moment, you'll notice that you can click on the c
 
 
     <style>
-    /*    YOUR CSS CODE HERE */ 
+        #emailfield{
+            display: none;
+        }
     </style>
-    
-    <script>
-	function toggleEmail(){
-		/*    YOUR JavaScript CODE HERE */ 
 
-	} 
+    <script>
+        function toggleEmail(){
+            console.log("toggleEmail being called");
+            if (document.getElementById("subscribe").checked){
+                document.getElementById("emailfield").style.display="block";
+            }
+            else{
+                document.getElementById("emailfield").style.display="none";
+            }
+
+        }
     </script>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>Challenge One</h1>
     <!-- UPDATE THE ACTION -->
     <form action="">
-      <fieldset>
-        <legend>Email subscriptions</legend>
-        <div id="check">
-          <label>
-            <input type="checkbox" name="subscribe" id="subscribe" onchange="toggleEmail()">
-            Check to toggle the email field.
-          </label>
-        </div>
+        <fieldset>
+            <legend>Email subscriptions</legend>
+            <div id="check">
+                <label>
+                    <input type="checkbox" name="subscribe" id="subscribe" onchange="toggleEmail()">
+                    Check to toggle the email field.
+                </label>
+            </div>
 
-        <div id="emailfield">
-          <label>
-            Email Address: 
-            <input type="text" name="email" id="email">
-          </label>
-        </div>
+            <div id="emailfield">
+                <label>
+                    Email Address:
+                    <input type="text" name="email" id="email">
+                </label>
+            </div>
 
-        <input type = "submit" value = "Go To Challenge 2">
-      </fieldset>
+            <input type="submit" value="Go To Challenge 2">
+        </fieldset>
     </form>
-  </body>
+</body>
+
 </html>
