@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<!-- 
+    <!--
 Step 1: Add a JavaScript function to your page called setHomeAddress() that simply logs a message,e.g. console.log("Yep, my function is being called");  Add an event so that when the checkbox is clicked your function is called and test that it works!
 
 Step 2: Get the Postal Address
 Before you can copy the address, we need to know how to read it using JavaScript.  Use the .value property of the textarea. It contains the text typed into a form field. In your setHomeAddress() function, write a line of code to display the Postal Address textarea's value in the console. W3Schools Textarea value page has a useful example close to what you'll write.
 
 Step 3: Set the value for the Home Address
-Now that you know how to find the value of any element in our document, the trick is to set our "home" address value equal to the "billing" Address. 
+Now that you know how to find the value of any element in our document, the trick is to set our "home" address value equal to the "billing" Address.
 
 To get started, hardcode the homeaddress to something. document.getElementById("home").value = "Hi there"; or
 document.querySelector("#home").value = "Hi there";
@@ -23,33 +24,48 @@ Try setting this property for your "homeaddress" element in your setHomeAddress(
 Step 5: Toggling the Home Address
 Now when you test your form, you'll notice that when you un-check your checkbox, the home address field isn't enabled.
 Add an if-else statement to your setHomeAddress() function so that when the checkbox is un-checked the Home address field is reset to empty and enabled again.-->
-	<meta charset="UTF-8">
-	<title>Challenge Two</title>
-    
+    <meta charset="UTF-8">
+    <title>Challenge Two</title>
+
     <script>
-	   function setHomeAddress(){
-      // YOUR  JavaScript CODE HERE
-     }
+        function setHomeAddress(){
+            console.log("setHomeAddress being called");
+            var bill = document.querySelector('#bill');
+            var home = document.querySelector("#home");
+            console.log(bill.value);
+            // home.value = "Hi there";
+            home.value = bill.value;
+
+            if (document.querySelector("#useBilling").checked){
+                home.disabled = true;
+            } else{
+                home.value = "";
+                home.disabled = false;
+            }
+
+        }
     </script>
 </head>
+
 <body>
     <h1>Challenge Two</h1>
     <!-- UPDATE THE ACTION -->
-    <form action="">
-      <fieldset>
-        <legend>Billing Information</legend>
-        <div>
-          <label for ="billing">Billing Address:</label><br>
-          <textarea name="billAdd" id="bill"></textarea>
-        </div>
+    <form action="challenge3.html">
+        <fieldset>
+            <legend>Billing Information</legend>
+            <div>
+                <label for="billing">Billing Address:</label><br>
+                <textarea name="billAdd" id="bill"></textarea>
+            </div>
 
-        <div>
-          <label for ="home">Home Address:</label><br>
-          <input type="checkbox" name="useBilling" onclick = "setHomeAddress()" id="useBilling"> Same as above <br>
-        <textarea name="homeAdd" id="home"></textarea>
-        </div>
-        <input type = "submit" value = "Go To Challenge 3">
-      </fieldset>
-      </form>
+            <div>
+                <label for="home">Home Address:</label><br>
+                <input type="checkbox" name="useBilling" onclick="setHomeAddress()" id="useBilling"> Same as above <br>
+                <textarea name="homeAdd" id="home"></textarea>
+            </div>
+            <input type="submit" value="Go To Challenge 3">
+        </fieldset>
+    </form>
 </body>
+
 </html>
